@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://textures/variation1.png" type="Texture" id=1]
 [ext_resource path="res://GodotBuddy.gd" type="Script" id=2]
+[ext_resource path="res://Sprite.gd" type="Script" id=3]
 
 [node name="GodotBuddy" type="Node2D"]
 script = ExtResource( 2 )
@@ -9,3 +10,6 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 80, 45 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+script = ExtResource( 3 )
