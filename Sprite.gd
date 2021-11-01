@@ -1,17 +1,15 @@
 extends Sprite
 
-export(Array, Texture) var TEXTURE_VARIATIONS_ARRAY: Array = [
-	preload("res://textures/variation1.png"),
-	preload("res://textures/variation2.png"),
-	preload("res://textures/variation3.png")
-]
+export(int) var TEXTURE_VARIATIONS_AMOUNT: int = 3
+export(int) var TEXTURE_WIDTH: int = 32
+#export(int) var TEXTURE_HEIGHT: int = 32
 
 func _ready():
 	variate_texture()
 
 func variate_texture():
-	# Separate files approach
-	if TEXTURE_VARIATIONS_ARRAY.size() > 1:
-		var texture_id: int = randi() % TEXTURE_VARIATIONS_ARRAY.size()
-		var chosen_texture: Texture = TEXTURE_VARIATIONS_ARRAY[texture_id]
-		texture = chosen_texture
+	# Tileset/Region approach
+	if TEXTURE_VARIATIONS_AMOUNT > 1:
+		var skips: int = randi() % TEXTURE_VARIATIONS_AMOUNT
+		region_rect.position.x += skips * TEXTURE_WIDTH
+#		region_rect.position.y += skips * TEXTURE_HEIGHT
